@@ -1,5 +1,6 @@
 <script lang="ts">
     // imports
+    // @ts-ignore
     import IoIosMenu from "svelte-icons/io/IoIosMenu.svelte";
 
     const navbarItems = [
@@ -11,9 +12,18 @@
 
     let menuOpen = false;
 
-    function showMenu() {
+    function toggleMenu() {
         menuOpen = !menuOpen;
+        
+        // to prevent scrolling 
+        if(menuOpen){
+            window.document.body.style.overflow = "hidden"
+        }
+        else { 
+            window.document.body.style.overflow = "auto"
+        }
     }
+
 </script>
 
 <nav
@@ -30,7 +40,7 @@
         {/each}
     </ul>
     <div class="w-[30px] md:hidden">
-        <button on:click={showMenu}>
+        <button on:click={toggleMenu}>
             <IoIosMenu />
         </button>
     </div>

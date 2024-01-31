@@ -31,7 +31,12 @@
   },
   "type": "module",
   "dependencies": {
+    "bits-ui": "^0.16.0",
+    "clsx": "^2.1.0",
+    "lucide-svelte": "^0.320.0",
     "svelte-icons": "^2.1.0",
+    "tailwind-merge": "^2.2.1",
+    "tailwind-variants": "^0.1.20",
     "vite-plugin-svelte-monorepo": "github:sveltejs/vite-plugin-svelte"
   }
 }
