@@ -7,7 +7,7 @@ export function GET({ params }) {
 	return json({
         liked: false,
         id: art_id,
-        pixel_data: "0121".repeat(64),
+        pixel_data: "1212".repeat(64),
         owner_id: "joey",
         artist_id: "joey",
         palette: ArtPalette.BnW,
