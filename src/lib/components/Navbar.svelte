@@ -1,39 +1,38 @@
 <script lang="ts">
     // imports
-    // @ts-ignore
     import IoIosMenu from "svelte-icons/io/IoIosMenu.svelte";
 
     const navbarItems = [
-        { id: 1, name: "Home" },
-        { id: 2, name: "Profil" },
-        { id: 3, name: "Create" },
-        { id: 4, name: "About" },
+        { id: 1, name: "Home", href: "/" },
+        { id: 2, name: "Profile", href: "/profile/firas" },
+        { id: 3, name: "Create", href: "/create" },
+        { id: 4, name: "About", href: "/about" },
     ];
 
     let menuOpen = false;
 
     function toggleMenu() {
         menuOpen = !menuOpen;
-        
-        // to prevent scrolling 
-        if(menuOpen){
-            window.document.body.style.overflow = "hidden"
-        }
-        else { 
-            window.document.body.style.overflow = "auto"
+
+        // to prevent scrolling
+        if (menuOpen) {
+            window.document.body.style.overflow = "hidden";
+        } else {
+            window.document.body.style.overflow = "auto";
         }
     }
-
 </script>
 
 <nav
     class="bg-[#212221] text-white h-[12vh] md:h-[10vh] flex justify-between items-center px-7"
 >
-    <h1 class="font-bold text-xl">32-BitMart</h1>
+    <h1 class="font-bold text-xl">
+        <a href="/"> 32-BitMart </a>
+    </h1>
     <ul class="hidden md:flex">
         {#each navbarItems as item (item.id)}
             <li class="px-2">
-                <a href="/">
+                <a href={item.href}>
                     {item.name}
                 </a>
             </li>
@@ -51,7 +50,7 @@
         <ul class="py-4">
             {#each navbarItems as item (item.id)}
                 <li class="px-2 py-6 text-xl border-b-2 border-black">
-                    <a href="/">
+                    <a on:click={toggleMenu} href={item.href}>
                         {item.name}
                     </a>
                 </li>
