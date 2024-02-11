@@ -8,9 +8,10 @@
 
     // props
     export let pixel_data;
+    const palette = ["#FFFFFF", "#999999", "#000000"];
     
     onMount(() => {
-        drawArtToCanvas(canvas, { pixel_data });
+        drawArtToCanvas(canvas, { pixel_data } , palette);
         canvas.style.borderColor = generateArtBorderColor(pixel_data);
     });
 

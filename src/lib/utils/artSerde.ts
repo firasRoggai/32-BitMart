@@ -10,7 +10,7 @@ type DrawData = {
 }
 
 
-export const example_art_data = [...Array(256)].map(()=> Math.floor(Math.random() * 3)).join("");
+export const example_art_data = [...Array(256)].map(() => Math.floor(Math.random() * 3)).join("");
 ///"01220122012201220122".repeat(16);
 
 export function deserializeArt(art_string: string) {
@@ -25,8 +25,23 @@ export function serializeArt(art_data: string) {
     return rows_base36?.map(row => "0".repeat(5 - row.length) + row);
 }
 
-export function drawArtToCanvas(canvas: HTMLCanvasElement, draw_data: DrawData) {
-    const palette = ["#FFFFFF", "#999999", "#000000"];
+// Function to get mouse position on the canvas
+export function getMousePos(canvas, event) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const x = (event.clientX - rect.left) * scaleX;
+    const y = (event.clientY - rect.top) * scaleY;
+
+    const pixel_width = canvas.width / 16;
+    const pixel_height = canvas.height / 15;
+    return {
+        x: Math.floor(x / pixel_width),
+        y: Math.floor(y / pixel_height),
+    };
+}
+
+export function drawArtToCanvas(canvas: HTMLCanvasElement, draw_data: DrawData, palette: string[]) {
 
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
