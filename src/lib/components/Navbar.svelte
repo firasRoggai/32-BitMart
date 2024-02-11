@@ -4,7 +4,11 @@
 
     const navbarItems = [
         { id: 1, name: "Home", href: "/" },
+<<<<<<< HEAD
         { id: 2, name: "Profile", href: "/profile/vandark43" },
+=======
+        { id: 2, name: "Profile", href: "/profile/firas" },
+>>>>>>> d667ae88886709eb1627c9cfda60627be930d189
         { id: 3, name: "Create", href: "/create" },
         { id: 4, name: "About", href: "/about" },
     ];

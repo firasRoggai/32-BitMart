@@ -23,7 +23,11 @@
     const response = getArtById(art_id);
 </script>
 
+<<<<<<< HEAD
 <div class={cn(className, "w-full")}>
+=======
+<div class={cn(className, "w-[270px] md:w-[350px]")}>
+>>>>>>> d667ae88886709eb1627c9cfda60627be930d189
     {#await response then data}
     <Card.Root>
         <Card.Header>
