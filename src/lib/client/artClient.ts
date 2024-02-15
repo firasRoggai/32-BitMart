@@ -26,6 +26,14 @@ export async function getArtById(art_id: string): Promise<ArtModel> {
     return response;
 }
 
+export async function getLatestArt(): Promise<ArtModel[]> {
+    const [response, err] = await get("latestArt");
+
+    if (err) throw err;
+
+    return response;
+}
+
 
 async function post<T = any>(route: string, body: any = {}): Promise<[T | null, ErrorResponse | null]> {
     const url = base_url + route;

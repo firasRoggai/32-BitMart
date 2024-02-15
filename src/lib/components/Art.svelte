@@ -1,30 +1,23 @@
 <script lang="ts">
     import * as Card from "$lib/components/ui/card";
     import * as Tooltip from "$lib/components/ui/tooltip";
-
-    // assets
+// assets
     import FaHeart from "svelte-icons/fa/FaHeart.svelte";
     import FaRegHeart from "svelte-icons/fa/FaRegHeart.svelte";
     import FaRegQuestionCircle from "svelte-icons/fa/FaRegQuestionCircle.svelte";
 
-    import { getArtById } from "$lib/client/artClient";
-
-    import ArtDropdown from "./ArtDropdown.svelte";
-    import ArtDisplay from "./ArtDisplay.svelte";
+    
     import { cn } from "../utils";
+    import ArtDisplay from "./ArtDisplay.svelte";
+    import ArtDropdown from "./ArtDropdown.svelte";
 
-    export let art_id: string;
     export let className: string = "";
+    export let data: ArtModel;
 
     let canvas: HTMLCanvasElement;
-
-    let data: any;
-
-    const response = getArtById(art_id);
 </script>
 
 <div class={cn(className, "w-full")}>
-    {#await response then data}
     <Card.Root>
         <Card.Header>
             <Card.Title class="flex justify-between w-full">
@@ -63,8 +56,6 @@
             </div>
         </Card.Footer>
     </Card.Root>
-    {/await}
-
 </div>
 
 
