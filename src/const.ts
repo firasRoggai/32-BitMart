@@ -13,3 +13,17 @@ export const palette_colors = {
     [ArtPalette.Forest]: ["#00441B", "#8F9779", "#FDD017"],
     [ArtPalette.Cyberpunk]: ["#0074D9", "#2ECC40", "#B10DC9"],
 };
+
+export enum UserRole {
+    User = "User",
+    Mod = "Mod",
+    Admin = "Admin",
+}
+
+export const art_tags = new Set([
+    "new",
+    "old",
+    "popular",
+    "expensive",
+    "cheap"
+]);

@@ -5,7 +5,7 @@
 ///// ART /////
 
 /// Getting arrays of art by a filter tag
-[GET] /api/art/get/["new" | "popular" | "expensive" | "cheap"]/[page_size]/[page_index]
+[GET] /api/art/query/["new" | "popular" | "expensive" | "cheap"]/[page_size]/[page_index]
     ? JWT
     >> ArtModel[]
 
@@ -37,17 +37,17 @@
     }
 
 
-///// PROFILE /////
+///// USER /////
 
 /// Get your own profile
-[GET] /api/profile
+[GET] /api/user
     ! JWT
-    >> CurrentUserModel
+    >> UserModel
 
-/// Update profile (work in progress)
-[UPDATE] /api/profile
+/// Update user (work in progress)
+[UPDATE] /api/user
     ! JWT
     // Provide with properties you're changing
-    >> CurrentUserModel
+    >> UserModel
 
 ```
